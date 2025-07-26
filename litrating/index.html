@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Star Rating Widget</title>
+    <script type="module" src="./star-rating.js"></script>
+  </head>
+  <body>
+    <h2>Lit Star Rating</h2>
+
+    <star-rating rating="3" max="5" id="rater"></star-rating>
+<div id="message"></div>
+
+<script>
+  const rater = document.getElementById('rater');
+  const message = document.getElementById('message');
+
+  rater.addEventListener('rating-changed', (event) => {
+    const value = event.detail.rating;
+    message.textContent = `⭐ Thank you! You rated this ${value} star${value > 1 ? 's' : ''}.`;
+  });
+</script>
+
+  </body>
+</html>
